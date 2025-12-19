@@ -11,7 +11,7 @@ Apoiar gestores públicos na identificação de áreas com déficit de serviços
 - Deck.GL + Mapbox
 - IBGE API
 - Brasil.io
-- Machine Learning (NLP supervisionado)
+- Machine Learning 
 
 ## Funcionalidades
 - Mapa interativo de serviços públicos
