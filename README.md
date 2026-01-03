@@ -1,6 +1,6 @@
 # Public Services Intelligence Map
 
-Aplicação de inteligência artificial e visualização geoespacial desenvolvida para apoio à gestão pública, utilizando dados oficiais e APIs abertas.
+Aplicação de inteligência artificial e visualização geoespacial desenvolvida para apoio à gestão pública. O sistema opera de forma independente de APIs privadas, consumindo dados públicos estruturados em arquivos brutos (raw) e processados (processed), garantindo replicabilidade, soberania dos dados e operação offline.
 
 ## Objetivo
 Apoiar gestores públicos na identificação de áreas com déficit de serviços essenciais, utilizando análise baseada em dados populacionais e demandas classificadas automaticamente.
