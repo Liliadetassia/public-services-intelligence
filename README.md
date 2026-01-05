@@ -21,3 +21,6 @@ Apoiar gestores públicos na identificação de áreas com déficit de serviços
 
 ## Aplicação em Políticas Públicas
 Planejamento urbano, alocação de recursos, análise de impacto social e tomada de decisão baseada em evidências.
+
+## Observações
+Os dados geoespaciais seguem o padrão GeoJSON (RFC 7946)
