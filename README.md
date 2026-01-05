@@ -26,6 +26,6 @@ Planejamento urbano, alocação de recursos, análise de impacto social e tomada
 Os dados geoespaciais seguem o padrão GeoJSON (RFC 7946). 
 As dependências do projeto foram mantidas no mínimo necessário, reduzindo superfície de falhas, custos de infraestrutura e complexidade operacional.E o requests, pandas, sklearn, spacy?
 Entram depois, se e somente se:
-você adicionar IA (classificação / NLP)
-consumir APIs
+você adicionar IA (classificação / NLP),
+consumir APIs,
 análise estatística
