@@ -1,0 +1,33 @@
+{
+  "metadata": {
+    "fonte": "Dados públicos simulados - Teresina/PI",
+    "atualizado_em": "2026-01-03",
+    "descricao": "Unidades de serviços públicos municipais"
+  },
+  "servicos": [
+    {
+      "id": 1,
+      "nome": "UBS Primavera",
+      "tipo": "Saúde",
+      "bairro": "Primavera",
+      "latitude": -5.08363,
+      "longitude": -42.80144
+    },
+    {
+      "id": 2,
+      "nome": "CRAS Parque Piauí",
+      "tipo": "Assistência Social",
+      "bairro": "Parque Piauí",
+      "latitude": -5.11592,
+      "longitude": -42.80110
+    },
+    {
+      "id": 3,
+      "nome": "Escola Municipal Itararé",
+      "tipo": "Educação",
+      "bairro": "Itararé",
+      "latitude": -5.07011,
+      "longitude": -42.77652
+    }
+  ]
+}
