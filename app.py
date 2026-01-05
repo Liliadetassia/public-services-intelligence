@@ -1,37 +1,95 @@
+import json
 import streamlit as st
 import pydeck as pdk
-from services.brasilio import load_health_units_teresina
-from services.ibge import get_teresina_population
-from map.layers import health_units_layer
+from config import (
+    CITY_NAME,
+    CITY_LATITUDE,
+    CITY_LONGITUDE,
+    MAP_ZOOM,
+    PROCESSED_DATA_PATH
+)
 
-st.set_page_config(layout="wide")
+# -------------------------------
+# Configuração da página
+# -------------------------------
+st.set_page_config(
+    page_title="Mapa de Unidades de Saúde – Teresina",
+    layout="wide"
+)
 
-st.title("Mapa Inteligente de Serviços Públicos — Teresina / PI")
-
-population = get_teresina_population()
+st.title("🏥 Unidades de Saúde Públicas – Teresina / PI")
 st.markdown(
-    f"""
-    **Município:** {population['municipio']} - {population['uf']}  
-    **População estimada:** {population['populacao_estimada']:,}
+    """
+    Visualização interativa de unidades de saúde públicas
+    utilizando dados abertos e georreferenciamento.
     """
 )
 
-df_health = load_health_units_teresina()
+# -------------------------------
+# Carregar GeoJSON
+# -------------------------------
+GEOJSON_FILE = f"{PROCESSED_DATA_PATH}/health_units_teresina.geojson"
 
-st.write(f"Unidades de saúde encontradas: {len(df_health)}")
+with open(GEOJSON_FILE, "r", encoding="utf-8") as f:
+    geojson_data = json.load(f)
 
-layer = health_units_layer(df_health)
+features = geojson_data["features"]
+
+# -------------------------------
+# Filtro por tipo
+# -------------------------------
+types_available = sorted(
+    list(set(f["properties"]["type"] for f in features))
+)
+
+selected_types = st.multiselect(
+    "Filtrar por tipo de unidade:",
+    options=types_available,
+    default=types_available
+)
+
+filtered_features = [
+    f for f in features
+    if f["properties"]["type"] in selected_types
+]
+
+filtered_geojson = {
+    "type": "FeatureCollection",
+    "features": filtered_features
+}
+
+st.write(f"🔎 {len(filtered_features)} unidades exibidas")
+
+# -------------------------------
+# Camada Deck.GL
+# -------------------------------
+layer = pdk.Layer(
+    "GeoJsonLayer",
+    data=filtered_geojson,
+    pickable=True,
+    auto_highlight=True,
+    filled=True,
+    extruded=False,
+    get_fill_color=[255, 140, 0, 180],  # laranja institucional
+    get_radius=80
+)
 
 view_state = pdk.ViewState(
-    latitude=-5.0892,
-    longitude=-42.8019,
-    zoom=12
+    latitude=CITY_LATITUDE,
+    longitude=CITY_LONGITUDE,
+    zoom=MAP_ZOOM
 )
+
+tooltip = {
+    "html": "<b>{name}</b><br/>Tipo: {type}<br/>Bairro: {neighborhood}",
+    "style": {"backgroundColor": "black", "color": "white"}
+}
 
 deck = pdk.Deck(
     layers=[layer],
     initial_view_state=view_state,
-    tooltip={"text": "{nome_fantasia}"}
+    tooltip=tooltip,
+    map_style=None  # sem Mapbox
 )
 
 st.pydeck_chart(deck)

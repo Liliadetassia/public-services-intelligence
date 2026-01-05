@@ -1,6 +1,12 @@
-import json
+import sys
 import os
+import json
+
+# 👇 adiciona a raiz do projeto ao path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from config import RAW_DATA_PATH, PROCESSED_DATA_PATH
+
 
 RAW_FILE = os.path.join(RAW_DATA_PATH, "health_units_teresina.json")
 PROCESSED_FILE = os.path.join(

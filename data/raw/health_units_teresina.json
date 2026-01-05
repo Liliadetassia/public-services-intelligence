@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "city": "Teresina",
+    "state": "PI",
+    "source": "Dados públicos municipais (exemplo educacional)",
+    "last_update": "2026-01-05",
+    "limit": 500
+  },
+  "health_units": [
+    {
+      "id": 1,
+      "name": "UBS Primavera",
+      "type": "UBS",
+      "neighborhood": "Primavera",
+      "latitude": -5.08363,
+      "longitude": -42.80144
+    },
+    {
+      "id": 2,
+      "name": "UBS Parque Piauí",
+      "type": "UBS",
+      "neighborhood": "Parque Piauí",
+      "latitude": -5.11592,
+      "longitude": -42.80110
+    },
+    {
+      "id": 3,
+      "name": "Hospital de Urgência de Teresina",
+      "type": "Hospital",
+      "neighborhood": "Centro",
+      "latitude": -5.09121,
+      "longitude": -42.80395
+    }
+  ]
+}

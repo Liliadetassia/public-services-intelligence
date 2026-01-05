@@ -1,0 +1,53 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 1,
+        "name": "UBS Primavera",
+        "type": "UBS",
+        "neighborhood": "Primavera"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -42.80144,
+          -5.08363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "name": "UBS Parque Piauí",
+        "type": "UBS",
+        "neighborhood": "Parque Piauí"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -42.8011,
+          -5.11592
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "name": "Hospital de Urgência de Teresina",
+        "type": "Hospital",
+        "neighborhood": "Centro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -42.80395,
+          -5.09121
+        ]
+      }
+    }
+  ]
+}
